@@ -1,0 +1,138 @@
+/* styles/Equipments.css */
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+/* Formulaire */
+.equipment-form {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.form-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Boutons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Liste */
+.equipment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.equipment-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.equipment-item:hover {
+    transform: translateY(-3px);
+}
+
+.equipment-name {
+    color: #333333;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .equipment-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .form-input,
+    .btn-primary {
+        width: 100%;
+    }
+
+    .equipment-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
