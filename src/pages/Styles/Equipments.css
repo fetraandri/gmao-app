@@ -40,7 +40,8 @@
     margin-bottom: 2rem;
 }
 
-.form-input {
+.form-input,
+.form-select {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #ced4da;
@@ -49,10 +50,21 @@
     transition: border-color 0.3s ease;
 }
 
-.form-input:focus {
+.form-input:focus,
+.form-select:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Filtre de recherche */
+.search-filter {
+    margin-bottom: 1.5rem;
+}
+
+.search-filter .form-input {
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Boutons */
@@ -85,33 +97,93 @@
     border-radius: 50%;
 }
 
-/* Liste */
-.equipment-list {
+/* Tableau */
+.equipments-table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1fr 0.5fr;
+    background-color: #f5f7fa;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: #333333;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.header-item {
+    padding: 0 1rem;
+}
+
+.equipments-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .equipment-item {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1fr 0.5fr;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
     align-items: center;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .equipment-item:hover {
-    transform: translateY(-3px);
+    background-color: #f9f9f9;
+}
+
+.equipment-name,
+.equipment-location,
+.equipment-interventions {
+    padding: 0 1rem;
+    color: #333333;
 }
 
 .equipment-name {
-    color: #333333;
-    font-size: 1.1rem;
     font-weight: 500;
+}
+
+.equipment-location,
+.equipment-interventions {
+    color: #666666;
+}
+
+.equipment-status {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-opérationnel {
+    background-color: #e6ffe6;
+    color: #28a745;
+}
+
+.status-en-panne {
+    background-color: #ffe6e6;
+    color: #dc3545;
+}
+
+.status-maintenance {
+    background-color: #fff3e0;
+    color: #f28c38;
+}
+
+.no-results {
+    padding: 1.5rem;
+    text-align: center;
+    color: #666666;
+    font-style: italic;
 }
 
 /* Responsive */
@@ -126,13 +198,22 @@
     }
 
     .form-input,
+    .form-select,
     .btn-primary {
         width: 100%;
     }
 
+    .table-header,
     .equipment-item {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
         gap: 0.5rem;
+    }
+
+    .header-item,
+    .equipment-name,
+    .equipment-location,
+    .equipment-status,
+    .equipment-interventions {
+        padding: 0.5rem;
     }
 }

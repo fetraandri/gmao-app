@@ -57,6 +57,23 @@
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
 
+/* Filtre */
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-section label {
+    font-weight: 500;
+    color: #333333;
+}
+
+.filter-section .form-select {
+    width: 200px;
+}
+
 /* Boutons */
 .btn {
     padding: 0.75rem 1.5rem;
@@ -76,46 +93,98 @@
     background-color: #0056b3;
 }
 
-.btn-danger {
+.btn-delete {
     background-color: #dc3545;
     color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
-.btn-danger:hover {
-    background-color: #b02a37;
-}
-
-/* Grille de cartes */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-/* Cartes */
-.card {
+/* Tableau */
+.maintenances-table {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-title {
-    color: #333333;
-    font-size: 1.25rem;
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1fr 0.5fr;
+    background-color: #f5f7fa;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
     font-weight: 600;
-    margin-bottom: 1rem;
+    color: #333333;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
-.card-text {
+.header-item {
+    padding: 0 1rem;
+}
+
+.maintenances-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.maintenance-item {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1fr 0.5fr;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.maintenance-item:hover {
+    background-color: #f9f9f9;
+}
+
+.maintenance-title,
+.maintenance-equipment,
+.maintenance-date {
+    padding: 0 1rem;
+    color: #333333;
+}
+
+.maintenance-title {
+    font-weight: 500;
+}
+
+.maintenance-equipment,
+.maintenance-date {
     color: #666666;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+}
+
+.maintenance-status {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-en-cours {
+    background-color: #fff3e0;
+    color: #f28c38;
+}
+
+.status-terminé {
+    background-color: #e6ffe6;
+    color: #28a745;
+}
+
+.no-results {
+    padding: 1.5rem;
+    text-align: center;
+    color: #666666;
+    font-style: italic;
 }
 
 /* Responsive */
@@ -131,7 +200,30 @@
 
     .form-input,
     .form-select,
-    .btn {
+    .btn-primary {
         width: 100%;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-section .form-select {
+        width: 100%;
+    }
+
+    .table-header,
+    .maintenance-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .header-item,
+    .maintenance-title,
+    .maintenance-equipment,
+    .maintenance-date,
+    .maintenance-status {
+        padding: 0.5rem;
     }
 }
